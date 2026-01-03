@@ -10,6 +10,8 @@ kotlin {
         it.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            // إجبار السيرفر على استخدام هوية موحدة
+            freeCompilerArgs += listOf("-Xruntime-logs=gc=info")
         }
     }
     sourceSets {
