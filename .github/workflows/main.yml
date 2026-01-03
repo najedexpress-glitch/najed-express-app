@@ -12,9 +12,9 @@ jobs:
       - name: Build Framework
         run: |
           chmod +x gradlew
-          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode
-      - name: Find and Upload Artifact
+          ./gradlew :composeApp:assembleDebugFramework
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Najed-Express-iOS-Final
-          path: "**/ComposeApp.framework"
+          path: composeApp/build/bin/iosArm64/debugFramework/ComposeApp.framework
