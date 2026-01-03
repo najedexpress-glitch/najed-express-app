@@ -1,4 +1,4 @@
-name: Build iOS IPA
+name: Build iOS Artifacts
 on: [push]
 jobs:
   build:
@@ -9,7 +9,12 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Build with Detailed Logs
+      - name: Build Framework
         run: |
           chmod +x gradlew
-          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode --info
+          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Najed-Express-iOS-Core
+          path: composeApp/build/xcode-frameworks/main/ComposeApp.framework
