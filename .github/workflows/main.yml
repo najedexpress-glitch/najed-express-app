@@ -9,10 +9,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Build Framework
+      - name: Build iOS Framework
         run: |
           chmod +x gradlew
-          ./gradlew :composeApp:assembleDebugFrameworkIosSimulatorArm64 --stacktrace
+          ./gradlew :composeApp:linkDebugFrameworkIosSimulatorArm64 --stacktrace
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
