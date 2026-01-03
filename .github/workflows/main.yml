@@ -9,11 +9,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      
-      - name: Accept Android Licenses
-        run: yes | sdkmanager --licenses || true
-
-      - name: Build with Gradle
+      - name: Build with Detailed Logs
         run: |
           chmod +x gradlew
-          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode --stacktrace
+          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode --info
