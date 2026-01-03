@@ -7,7 +7,6 @@ plugins {
 kotlin {
     androidTarget()
     
-    // التركيز فقط على معمارية السيرفر لتسريع البناء
     iosSimulatorArm64 {
         binaries.framework {
             baseName = "ComposeApp"
@@ -20,6 +19,8 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+            implementation(compose.components.resources) // إضافة دعم الموارد
         }
     }
 }
