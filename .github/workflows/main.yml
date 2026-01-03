@@ -10,4 +10,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - name: Build with Gradle
-        run: chmod +x gradlew && ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode
+        run: |
+          chmod +x gradlew
+          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode
