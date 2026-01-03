@@ -10,8 +10,6 @@ kotlin {
         it.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-            // إجبار السيرفر على استخدام هوية موحدة
-            freeCompilerArgs += listOf("-Xruntime-logs=gc=info")
         }
     }
     sourceSets {
@@ -26,4 +24,11 @@ kotlin {
 android {
     namespace = "com.najed.express"
     compileSdk = 34
+    defaultConfig {
+        applicationId = "com.najed.express"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
+    }
 }
