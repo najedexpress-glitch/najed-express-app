@@ -1,0 +1,13 @@
+name: Build iOS IPA
+on: [push]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Build with Gradle
+        run: chmod +x gradlew && ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode
