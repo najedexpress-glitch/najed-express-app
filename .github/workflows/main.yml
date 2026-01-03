@@ -9,12 +9,14 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.0.app
       - name: Build Framework
         run: |
           chmod +x gradlew
-          ./gradlew :composeApp:assembleDebugFramework
+          ./gradlew :composeApp:assembleDebugFramework --stacktrace
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Najed-Express-iOS-Final
-          path: composeApp/build/bin/**/ComposeApp.framework
+          path: "**/ComposeApp.framework"
