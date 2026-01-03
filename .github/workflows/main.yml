@@ -17,4 +17,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Najed-Express-iOS-Final
-          path: composeApp/build/bin/iosArm64/debugFramework/ComposeApp.framework
+          path: composeApp/build/bin/**/ComposeApp.framework
